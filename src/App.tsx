@@ -6,7 +6,6 @@ import CityInfo from "./components/city/CityInfo";
 import ChiefGear from "./components/player/ChiefGear";
 // import ResearchTree from "./components/research/ResearchTree";
 import FacilitiesSelector from "./components/facilities/FacilitiesSelector";
-import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
 
 function App() {
 	return (
