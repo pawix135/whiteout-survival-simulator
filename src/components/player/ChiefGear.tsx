@@ -1,28 +1,20 @@
-import { Plus } from "lucide-react";
+import ChiefGearSlot from "./ChiefGearSlot";
 
 interface Props {
 	ok?: boolean;
 }
 
-const EmptySlot: React.FC = () => {
-	return (
-		<div className="border-2 border-gray-500 size-[100px] grid place-items-center">
-			<Plus size={32} />
-		</div>
-	);
-};
-
 const ChiefGear: React.FC<Props> = () => {
 	return (
 		<div className="grid grid-flow-col grid-cols-3 grid-rows-3 gap-5 place-items-center max-w-[700px] mx-auto">
 			<div>
-				<EmptySlot />
+				<ChiefGearSlot type="Helmet" />
 			</div>
 			<div>
-				<EmptySlot />
+				<ChiefGearSlot type="Chest" />
 			</div>
 			<div>
-				<EmptySlot />
+				<ChiefGearSlot type="Ring" />
 			</div>
 			<div className="row-span-3">
 				<img
@@ -32,15 +24,13 @@ const ChiefGear: React.FC<Props> = () => {
 				/>
 			</div>
 			<div>
-				<EmptySlot />
+				<ChiefGearSlot type="Watch" />
 			</div>
 			<div>
-				{" "}
-				<EmptySlot />
+				<ChiefGearSlot type="Leggins" />
 			</div>
 			<div>
-				{" "}
-				<EmptySlot />
+				<ChiefGearSlot type="Weapon" />
 			</div>
 		</div>
 	);

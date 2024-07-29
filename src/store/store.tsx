@@ -2,7 +2,15 @@ import type { StoreActions, StoreState } from "@/types/store";
 import { createContext } from "react";
 
 export const initialStoreState: StoreState = {
-	chiefGear: {},
+	chiefGear: {
+		Helmet: {
+			gearTier: "Green",
+			gearLevel: {
+				level: 1,
+				stats: 9.35,
+			},
+		},
+	},
 	city: {
 		furnace: 1,
 	},

@@ -13,6 +13,23 @@ export const ChiefGearPartTypeSchema = z.enum([
 	"Red T2",
 	"Red T3",
 ]);
+
+export type ChiefGearPartType = z.infer<typeof ChiefGearPartTypeSchema>;
+
+export const ChiefGearPartList: ChiefGearPartType[] = [
+	"Green",
+	"Blue",
+	"Purple",
+	"Purple T1",
+	"Gold",
+	"Gold T1",
+	"Gold T2",
+	"Red",
+	"Red T1",
+	"Red T2",
+	"Red T3",
+];
+
 export const ChiefGearStarSchema = z.number().int().min(0).max(3);
 export const ChiefGearCharmLevelSchema = z.number().int().min(1).max(11);
 
@@ -39,14 +56,16 @@ export const ChiefGearListSchema = z.record(
 
 export type ChiefGearListType = z.infer<typeof ChiefGearListSchema>;
 
-export const ChiefGearItemTypeSchema = z.enum([
+export const ChiefGearItemTypeEnum = z.enum([
 	"Helmet",
-	"Body",
+	"Chest",
 	"Ring",
-	"Ammulet",
+	"Watch",
 	"Leggins",
 	"Weapon",
 ]);
+
+export type ChiefGearItemType = z.infer<typeof ChiefGearItemTypeEnum>;
 
 export const ChiefGearPartSchema = z.object({
 	gearTier: ChiefGearPartTypeSchema,
@@ -56,13 +75,13 @@ export const ChiefGearPartSchema = z.object({
 export type ChiefGearPart = z.infer<typeof ChiefGearPartSchema>;
 
 export const ChiefGearPartsListSchema = z.record(
-	ChiefGearItemTypeSchema,
+	ChiefGearItemTypeEnum,
 	ChiefGearPartSchema,
 );
 
 export type ChiefGearPartsListType = z.infer<typeof ChiefGearPartsListSchema>;
 
-export const ChiefGearList: ChiefGearListType = {
+export const ChiefGearLevelList: ChiefGearListType = {
 	Green: {
 		stars: [
 			{
