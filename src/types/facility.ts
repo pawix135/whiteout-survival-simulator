@@ -11,8 +11,21 @@ export const FacilityBonusType = z.enum([
 	"troops_attack",
 ]);
 
+export const FacilitiesNamesEnum = z.enum([
+	"Construction",
+	"Defense",
+	"Expedition",
+	"Gathering",
+	"Production",
+	"Tech",
+	"Training",
+	"Weapons",
+]);
+
+export type FacilitiesNames = z.infer<typeof FacilitiesNamesEnum>;
+
 export const FacilitySchema = z.object({
-	name: z.string(),
+	name: FacilitiesNamesEnum,
 	booster: z.array(
 		z.object({
 			level: z.number().int(),

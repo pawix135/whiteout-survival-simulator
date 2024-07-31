@@ -1,3 +1,4 @@
+import { useStore } from "@/hooks/useStore";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
 import {
@@ -8,6 +9,7 @@ import {
 	SelectValue,
 } from "../ui/select";
 import { Separator } from "../ui/separator";
+import { useDispatch } from "@/hooks/useDispatch";
 
 interface Props {
 	ok?: boolean;
@@ -15,6 +17,9 @@ interface Props {
 const furnaceLevel = () => Array.from({ length: 30 }, (_, i) => i + 1);
 
 const CityInfo: React.FC<Props> = () => {
+	const { city } = useStore();
+	const dispatch = useDispatch();
+
 	return (
 		<Card>
 			<CardHeader>
@@ -24,7 +29,15 @@ const CityInfo: React.FC<Props> = () => {
 				<Separator className="mb-3" />
 				<div className="space-y-2">
 					<Label htmlFor="furnace-level">Furnace level</Label>
-					<Select>
+					<Select
+						value={city.furnace.toString()}
+						onValueChange={(value) => {
+							dispatch({
+								type: "CITY/SET/FURNACE",
+								payload: Number.parseInt(value),
+							});
+						}}
+					>
 						<SelectTrigger className="w-[180px]">
 							<SelectValue placeholder="1" />
 						</SelectTrigger>
