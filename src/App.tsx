@@ -8,8 +8,8 @@ import ResearchTree from "./components/research/ResearchTree";
 import FacilitiesSelector from "./components/facilities/FacilitiesSelector";
 import Footer from "./components/footer";
 import StoreProvider from "./components/providers/StoreProvider";
-import StoreStateDebug from "./components/debug/StoreDebug";
-import { DEBUG } from "./constants";
+// import StoreStateDebug from "./components/debug/StoreDebug";
+// import { DEBUG } from "./constants";
 
 function App() {
 	return (
@@ -28,11 +28,11 @@ function App() {
 						</div>
 					</div>
 				</div>
-				{DEBUG && (
+				{/* {DEBUG && (
 					<>
 						<StoreStateDebug />
 					</>
-				)}
+				)} */}
 			</StoreProvider>
 			<Footer />
 		</ThemeProvider>

@@ -1,4 +1,5 @@
 import { DEBUG } from "@/constants";
+import { ChiefGearLevelList } from "@/types/gear";
 import type { StoreActions, StoreState } from "@/types/store";
 
 export const storeReducer = (
@@ -34,8 +35,24 @@ export const storeReducer = (
 			}
 			return clone;
 		}
-		default: {
+		case "GEAR/SELECT": {
+			const { type, tier } = action.payload;
+			const gear = ChiefGearLevelList[tier];
+
+			if (!gear) {
+				console.error(`Invalid gear tier: ${tier}`);
+				return state;
+			}
+
+			clone.chiefGear[type] = {
+				gearLevel: gear.stars[0],
+				gearTier: tier,
+			};
+
 			return clone;
+		}
+		default: {
+			return state;
 		}
 	}
 };

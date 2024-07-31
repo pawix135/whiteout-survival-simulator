@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { ChiefGearItemType, ChiefGearPartType } from "./gear";
 import { ChiefGearPartsListSchema } from "./gear";
 import { FacilitiesNamesEnum } from "./facility";
 import type { FacilitiesNames } from "./facility";
@@ -21,6 +22,14 @@ export type ActionFurnace = {
 	payload: number;
 };
 
+export type ActionGearSelect = {
+	type: "GEAR/SELECT";
+	payload: {
+		tier: ChiefGearPartType;
+		type: ChiefGearItemType;
+	};
+};
+
 export type ActionFacilitySet = {
 	type: "FACILITY/SET";
 	payload: {
@@ -30,4 +39,4 @@ export type ActionFacilitySet = {
 	};
 };
 
-export type StoreActions = ActionFurnace | ActionFacilitySet;
+export type StoreActions = ActionFurnace | ActionFacilitySet | ActionGearSelect;
